@@ -1,0 +1,59 @@
+<div class="container">
+  <h2>
+    <b>{{ sym }}</b> <br />
+    Real Time Data
+  </h2>
+
+  <mat-card class="card mat-elevation-z4">
+    <mat-card-header
+      style="display: flex; align-items: center; justify-content: center"
+    >
+      <mat-card-title>
+        <div style="display: flex; flex-direction: column; align-items: center">
+          <img [src]="iconUrl()" alt="" height="100px" />
+          <span style="margin: 10px">
+            {{ trimSymbol() }}
+          </span>
+        </div>
+      </mat-card-title>
+    </mat-card-header>
+    <img
+      mat-card-image
+      src="../../../assets/{{ trimSymbol().toLowerCase() }}.png"
+      alt=""
+      style="border-radius: 15px"
+    />
+    <mat-card-content>
+      <!-- <p style="float: right; margin: -50px 0">{{ date(coinData.E) }}</p> -->
+      <div class="center">
+        <div>
+          <b>$ {{ coinData.b | number: "1.0-3" }}</b>
+          <h3>Bid Price</h3>
+        </div>
+        <div>
+          <b>$ {{ coinData.a | number: "1.0-3" }}</b>
+          <h3>Ask Price</h3>
+        </div>
+      </div>
+
+      <div class="center">
+        <div>
+          <b>$ {{ coinData.h | number: "1.0-3" }}</b>
+          <h3>High Price</h3>
+        </div>
+        <div>
+          <b>$ {{ coinData.l | number: "1.0-3" }}</b>
+          <h3>Low Price</h3>
+        </div>
+        <div>
+          <b>$ {{ coinData.o | number: "1.0-3" }}</b>
+          <h3>Open Price</h3>
+        </div>
+        <div>
+          <b>$ {{ coinData.c | number: "1.0-3" }}</b>
+          <h3>Close Price</h3>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

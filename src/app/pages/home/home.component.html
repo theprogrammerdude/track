@@ -1,0 +1,74 @@
+<div class="container">
+  <h1>
+    <p>
+      Welcome to Track an online application to track various cryptocurrencies.
+    </p>
+  </h1>
+
+  <div class="mat-elevation-z8">
+    <table [dataSource]="tickers" mat-table matSort class="table">
+      <ng-container matColumnDef="symbol">
+        <th *matHeaderCellDef mat-header-cell>Symbol</th>
+        <td *matCellDef="let element" mat-cell>
+          <div style="display: flex; align-items: center">
+            <img
+              [src]="iconUrl(element.s)"
+              alt=""
+              height="25px"
+              style="margin: 0 10px"
+            />
+            {{ trimSymbol(element.s) }}
+          </div>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="bid">
+        <th *matHeaderCellDef mat-sort-header mat-header-cell>Bid</th>
+        <td *matCellDef="let element" mat-cell>
+          <div *ngIf="element.s !== 'SHIBUSDT'">
+            $ {{ element.b | number: "1.0-3" }}
+          </div>
+
+          <div *ngIf="element.s === 'SHIBUSDT'">$ {{ element.b }}</div>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="ask">
+        <th *matHeaderCellDef mat-sort-header mat-header-cell>Ask</th>
+        <td *matCellDef="let element" mat-cell>
+          <div *ngIf="element.s !== 'SHIBUSDT'">
+            $ {{ element.a | number: "1.0-3" }}
+          </div>
+
+          <div *ngIf="element.s === 'SHIBUSDT'">$ {{ element.a }}</div>
+        </td>
+      </ng-container>
+      <!-- <ng-container matColumnDef="high">
+        <th *matHeaderCellDef mat-sort-header mat-header-cell>High</th>
+        <td *matCellDef="let element" mat-cell>
+          {{ element.h | number: "1.0-3" }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="low">
+        <th *matHeaderCellDef mat-sort-header mat-header-cell>Low</th>
+        <td *matCellDef="let element" mat-cell>
+          {{ element.l | number: "1.0-3" }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="volume">
+        <th *matHeaderCellDef mat-sort-header mat-header-cell>Volume</th>
+        <td *matCellDef="let element" mat-cell>
+          {{ element.v | number: "1.0-3" }}
+        </td>
+      </ng-container> -->
+      <!-- <ng-container matColumnDef="sales">
+            <th *matHeaderCellDef mat-sort-header mat-header-cell>Sales</th>
+            <td *matCellDef="let element" mat-cell>{{ element.sales }}</td>
+          </ng-container> -->
+      <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+      <tr
+        *matRowDef="let row; columns: displayedColumns"
+        mat-row
+        (click)="coinData(row)"
+      ></tr>
+    </table>
+  </div>
+</div>

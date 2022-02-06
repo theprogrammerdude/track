@@ -1,0 +1,19 @@
+.mat-row .mat-cell {
+  border-bottom: 1px solid transparent;
+  border-top: 1px solid transparent;
+  cursor: pointer;
+}
+
+.mat-row:hover .mat-cell {
+  background-color: #d3d3d3;
+}
+
+.table {
+  width: 60vw;
+}
+
+@media screen and (max-width: 800px) {
+  .table {
+    width: 95vw;
+  }
+}

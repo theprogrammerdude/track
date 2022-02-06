@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+* {
+  font-family: "Supermercado One", cursive;
+}
+
+.container {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
